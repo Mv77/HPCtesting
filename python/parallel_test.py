@@ -27,8 +27,8 @@ def test_fun(size):
 
 def main():
     
-    n = 500
-    size = 10
+    n = 5000
+    size = 100
     
     # Parallel
     ##########
