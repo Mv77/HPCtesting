@@ -27,11 +27,14 @@ def test_fun(size):
 
 def main():
     
-    n = 5000
-    size = 100
+    n = 50
+    size = 10
     
     # Parallel
     ##########
+    
+    cores = mp.cpu_count()
+    print('There are {:} threads available'.format(cores, prec = 0))
     
     start = time.time()
     # Create pool
