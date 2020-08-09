@@ -13,7 +13,7 @@ do
 	log_name="log_${part}.txt"
 	# Slurm part
 	file="${dir}/submit_$part.sh"
-	echo "!/bin/bash" > $file
+	echo "#!/bin/bash" > $file
 	echo "#SBATCH --job-name = mytest" >> $file
 	echo "#SBATCH --time=24:0:0" >> $file
 	echo "#SBATCH --partition=$part" >> $file
