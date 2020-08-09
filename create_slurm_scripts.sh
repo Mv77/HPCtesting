@@ -1,11 +1,15 @@
 echo "Hello"
 
-s_all_file="submit_all.sh"
-echo "">$s_all_file
+dir="./python"
 
+# Create a file that will call all the submission files
+s_all_file="${dir}/submit_all.sh"
+
+# Create a submission file for every partition to test
 for part in parallel shared skylake
 do
-	file="submit_$part.sh"
+	# Slurm part
+	file="${dir}/submit_$part.sh"
 	echo "!/bin/bash" > $file
 	echo "#SBATCH --job-name = mytest" >> $file 
 	echo "#SBATCH --time=24:0:0" >> $file
@@ -17,8 +21,10 @@ do
 
 	echo "" >>$file
 
-	echo "module load python/3.7" >> $file
-	echo "python parallel_test.py >> log_$part.txt" >> $file
+	# Commands part, loaded from dir/commands.txt
+	cmdfile="${dir}/commands.txt"
+	cat $cmdfile >> $file
 
+	# Add to the master submission file
 	echo "sbatch submit_$part.sh" >> $s_all_file
 done
