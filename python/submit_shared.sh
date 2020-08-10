@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name = mytest
+#SBATCH --job-name=python_shared
 #SBATCH --time=24:0:0
 #SBATCH --partition=shared
 #SBATCH --nodes=1

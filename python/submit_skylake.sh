@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name = mytest
+#SBATCH --job-name=python_skylake
 #SBATCH --time=24:0:0
 #SBATCH --partition=skylake
 #SBATCH --nodes=1

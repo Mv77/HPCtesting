@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name = mytest
+#SBATCH --job-name=python_parallel
 #SBATCH --time=24:0:0
 #SBATCH --partition=parallel
 #SBATCH --nodes=1
