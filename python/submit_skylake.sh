@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 #SBATCH --job-name = mytest
 #SBATCH --time=24:0:0
 #SBATCH --partition=skylake
