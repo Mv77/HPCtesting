@@ -13,11 +13,9 @@ import time
 def test_fun(size):
     
     # Create some size*size matrix spd matrix
-    aux = np.arange(size*size)/(size*size)
-    mat = np.reshape(aux, (size, size))
-    spd = np.dot(mat, mat.T)
+    mat = np.random.normal(size = (size,size))
     # Get the inverse
-    inv = np.linalg.inv(spd)
+    inv = np.linalg.inv(np.dot(mat, mat.T))
     # And store the sum of its elements
     res = np.sum(inv)
         
@@ -27,8 +25,8 @@ def test_fun(size):
 
 def main():
     
-    n = 50
-    size = 10
+    n = 500
+    size = 200
     
     # Parallel
     ##########
@@ -36,6 +34,7 @@ def main():
     cores = mp.cpu_count()
     print('There are {:} threads available'.format(cores, prec = 0))
     
+    test_fun(size)
     start = time.time()
     # Create pool
     pool = mp.Pool(mp.cpu_count())
