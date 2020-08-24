@@ -1,0 +1,3 @@
+module load matlab
+matlab -nodisplay -nojvm -nosplash -nodesktop -r "parallel_test"
+echo "matlab exit code: $?"
