@@ -1,6 +1,9 @@
 echo "What test?"
 read testname
 
+echo "Email:"
+read email
+
 dir="./$testname"
 
 # Create a file that will call all the submission files
@@ -21,7 +24,7 @@ do
 	echo "#SBATCH --ntasks-per-node=4" >> $file
 	echo "#SBATCH --output=$log_name" >> $file
 	echo "#SBATCH --mail-type=ALL" >> $file
-	echo "#SBATCH --mail-user=mvelasq2@jhu.edu" >> $file
+	echo "#SBATCH --mail-user=${email}" >> $file
 
 	echo "" >>$file
 
