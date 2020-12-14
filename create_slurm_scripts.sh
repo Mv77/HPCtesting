@@ -24,8 +24,10 @@ do
 	echo "#SBATCH --ntasks-per-node=4" >> $file
 	echo "#SBATCH --output=$log_name" >> $file
 	echo "#SBATCH --mail-type=ALL" >> $file
-	echo "#SBATCH --mail-user=${email}" >> $file
-
+	if [-n "${email}"]
+	then
+		echo "#SBATCH --mail-user=${email}" >> $file
+	fi
 	echo "" >>$file
 
 	# Commands part, loaded from dir/commands.txt
