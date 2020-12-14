@@ -16,7 +16,7 @@ def fib(n):
         return fib(n-1) + fib(n-2)
 
 # %%
-n = 33
+n = 30
 
 start = time.time()
 res = list(map(fib, range(n)))
