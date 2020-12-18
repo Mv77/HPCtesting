@@ -1,6 +1,9 @@
 echo "What test?"
 read testname
 
+echo "Tasks per node"
+read tpn
+
 echo "Email:"
 read email
 
@@ -21,7 +24,7 @@ do
 	echo "#SBATCH --time=24:0:0" >> $file
 	echo "#SBATCH --partition=$part" >> $file
 	echo "#SBATCH --nodes=1" >> $file
-	echo "#SBATCH --ntasks-per-node=4" >> $file
+	echo "#SBATCH --ntasks-per-node=${tpn}" >> $file
 	echo "#SBATCH --output=$log_name" >> $file
 	if [ -n "${email}" ]
 	then
@@ -29,6 +32,9 @@ do
 		echo "#SBATCH --mail-user=${email}" >> $file
 	fi
 	echo "" >>$file
+
+	# Limit threading to the same number of tasks per node
+	echo "export OMP_NUM_THREADS=${tpn}" >> $file
 
 	# Commands part, loaded from dir/commands.txt
 	cmdfile="${dir}/commands.txt"
