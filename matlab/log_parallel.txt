@@ -1,0 +1,27 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+MATLAB detected: 24 physical cores.
+MATLAB detected: 24 logical cores.
+MATLAB was assigned: 24 logical cores by the OS.
+MATLAB is using: 24 logical cores.
+
+ans =
+
+    24
+
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 24).
+Parallel pool using the 'local' profile is shutting down.
+Fontconfig warning: "/software/centos7/etc/fonts/fonts.conf", line 86: unknown element "blank"
+Fontconfig warning: "/software/centos7/etc/fonts/fonts.conf", line 86: unknown element "blank"
+Parallel time was 1.6856 seconds
+Sequential time was 1.8603 seconds
+matlab exit code: 0
