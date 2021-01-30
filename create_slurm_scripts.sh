@@ -33,8 +33,11 @@ do
 	fi
 	echo "" >>$file
 
-	# Limit threading to the same number of tasks per node
-	echo "export OMP_NUM_THREADS=${tpn}" >> $file
+	# Limit threading to the same number of tasks per node (important for Python)
+	if [$testname == "python"]
+	then
+		echo "export OMP_NUM_THREADS=${tpn}" >> $file
+	fi
 
 	# Commands part, loaded from dir/commands.txt
 	cmdfile="${dir}/commands.txt"
