@@ -34,7 +34,7 @@ do
 	echo "" >>$file
 
 	# Limit threading to the same number of tasks per node (important for Python)
-	if [$testname == "python"]
+	if [[ $testname == "python" ]]
 	then
 		echo "export OMP_NUM_THREADS=${tpn}" >> $file
 	fi
