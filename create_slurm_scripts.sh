@@ -1,8 +1,8 @@
 echo "What test?"
 read testname
 
-echo "Tasks per node"
-read tpn
+echo "CPUs per task"
+read cpt
 
 echo "Email:"
 read email
@@ -21,10 +21,11 @@ do
 	file="${dir}/submit_$part.sh"
 	echo "#!/bin/bash" > $file
 	echo "#SBATCH --job-name=${testname}_${part}" >> $file
-	echo "#SBATCH --time=24:0:0" >> $file
+	echo "#SBATCH --time=2:0:0" >> $file
 	echo "#SBATCH --partition=$part" >> $file
 	echo "#SBATCH --nodes=1" >> $file
-	echo "#SBATCH --ntasks-per-node=${tpn}" >> $file
+	echo "#SBATCH --ntasks=1" >> $file
+	echo "#SBATCH --cpus-per-task=${cpt}" >> $file
 	echo "#SBATCH --output=$log_name" >> $file
 	if [ -n "${email}" ]
 	then
@@ -36,7 +37,7 @@ do
 	# Limit threading to the same number of tasks per node (important for Python)
 	if [[ $testname == "python" ]]
 	then
-		echo "export OMP_NUM_THREADS=${tpn}" >> $file
+		echo "export OMP_NUM_THREADS=${cpt}" >> $file
 	fi
 
 	# Commands part, loaded from dir/commands.txt
