@@ -34,3 +34,4 @@ for i=1:n
 end
 t = toc;
 disp(['Sequential time was ',num2str(t),' seconds']);
+exit

@@ -14,7 +14,7 @@ s_all_file="${dir}/submit_all.sh"
 echo "" > $s_all_file
 
 # Create a submission file for every partition to test
-for part in parallel shared skylake
+for part in defq
 do
 	log_name="log_${part}.txt"
 	# Slurm part
